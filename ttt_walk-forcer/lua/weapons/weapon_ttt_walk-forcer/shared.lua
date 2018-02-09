@@ -115,7 +115,7 @@ function SWEP:PrimaryAttack(worldsnd)
 			if ply:IsNPC() then timer.Simple(10,function() if IsValid(ply) then ply:Remove() end end)
 			else
 				timer.Simple(10,function() DoPoison(attacker,ply) end)
-				timer.Create("Poison",0.5,0,function()
+				timer.Create("Poison",0.1,0,function()
 					if IsValid(ply) and ply.infected and ply:Alive() then
 						ply:ConCommand("+forward")
 						timer.Simple(0.25,function() if IsValid(ply) then ply:ConCommand("-forward") end end)
