@@ -137,7 +137,9 @@ end
 local function StopPoison()
 		timer.Stop("Poison")
     for k, v in pairs(player.GetAll()) do
-      v:ConCommand("-forward")
+      if v.infected then
+        v:ConCommand("-forward")
+      end
     end
 end
 
