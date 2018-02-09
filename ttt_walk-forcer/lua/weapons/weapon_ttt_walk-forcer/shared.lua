@@ -1,21 +1,21 @@
 
 if SERVER then
    AddCSLuaFile( "shared.lua" )
-resource.AddFile("materials/VGUI/ttt/icon_Attack-Forcer.png")
+resource.AddFile("materials/VGUI/ttt/icon_Walk-Forcer.png")
 end
 
 SWEP.HoldType			= "pistol"
 
-   SWEP.PrintName = "Attack-Forcer"
+   SWEP.PrintName = "Walk-Forcer"
 if CLIENT then
    SWEP.Slot = 6
 
    SWEP.EquipMenuData = {
       type = "item_weapon",
-      desc = "1 Dart. Force a Player to attack!"
+      desc = "1 Dart. Force a Player to walk forward!"
    };
 
-   SWEP.Icon = "VGUI/ttt/icon_Attack-Forcer.png"
+   SWEP.Icon = "VGUI/ttt/icon_Walk-Forcer.png"
 end
 
 SWEP.Cat = "Dart Guns"
@@ -117,13 +117,13 @@ function SWEP:PrimaryAttack(worldsnd)
 				timer.Simple(10,function() DoPoison(attacker,ply) end)
 				timer.Create("Poison",0.5,0,function()
 					if IsValid(ply) and ply.infected and ply:Alive() then
-						ply:ConCommand("+attack")
-						timer.Simple(0.25,function() if IsValid(ply) then ply:ConCommand("-attack") end end)
+						ply:ConCommand("+forward")
+						timer.Simple(0.25,function() if IsValid(ply) then ply:ConCommand("-forward") end end)
 					elseif IsValid(ply) and ply.infected and not ply:Alive() then
 						timer.Stop("Poison")
 					end
 				end)
-				DamageLog(Format("DMG:\t %s [%s] Infected with Attack-Forcer %s [%s]", self.Owner:Nick(), self.Owner:GetRoleString(), ply:Nick(), ply:GetRoleString()))
+				DamageLog(Format("DMG:\t %s [%s] Infected with Walk-Forcer %s [%s]", self.Owner:Nick(), self.Owner:GetRoleString(), ply:Nick(), ply:GetRoleString()))
 			end
 		end
 	end
