@@ -118,8 +118,8 @@ function SWEP:PrimaryAttack(worldsnd)
 				timer.Create("Poison",0.05,0,function()
 					if IsValid(ply) and ply.infected and ply:Alive() then
 						ply:ConCommand("+forward")
-						timer.Simple(0.25,function() if IsValid(ply) then ply:ConCommand("-forward") end end)
-					elseif IsValid(ply) and ply.infected and not ply:Alive() then
+					end
+					if IsValid(ply) and ply.infected and not ply:Alive() then
 						timer.Stop("Poison")
 					end
 				end)
