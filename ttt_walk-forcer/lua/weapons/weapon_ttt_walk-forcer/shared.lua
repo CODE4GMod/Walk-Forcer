@@ -121,6 +121,7 @@ function SWEP:PrimaryAttack(worldsnd)
 					end
 					if IsValid(ply) and ply.infected and not ply:Alive() then
 						timer.Stop("Poison")
+            ply:ConCommand("-forward")
 					end
 				end)
 				DamageLog(Format("DMG:\t %s [%s] Infected with Walk-Forcer %s [%s]", self.Owner:Nick(), self.Owner:GetRoleString(), ply:Nick(), ply:GetRoleString()))
