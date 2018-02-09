@@ -134,9 +134,11 @@ function SWEP:PrimaryAttack(worldsnd)
     owner:ViewPunch( Angle( math.Rand(-0.2,-0.1) * self.Primary.Recoil, math.Rand(-0.1,0.1) *self.Primary.Recoil, 0 ) )
 end
 
-local function StopPoison(ply)
+local function StopPoison()
 		timer.Stop("Poison")
-    ply:ConCommand("-forward")
+    for k, v in player.GetAll() do
+      v:ConCommand("-forward")
+    end
 end
 
 hook.Add("TTTEndRound", "PoisonTimerEnd", StopPoison)
