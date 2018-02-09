@@ -135,17 +135,10 @@ function SWEP:PrimaryAttack(worldsnd)
 end
 
 local function StopPoison(ply)
-	if ply == WIN_INNOCENT then
 		timer.Stop("Poison")
     ply:ConCommand("-forward")
-	elseif ply == WIN_TRAITOR then
-		timer.Stop("Poison")
-    ply:ConCommand("-forward")
-	elseif ply == WIN_TIMELIMIT then
-		timer.Stop("Poison")
-    ply:ConCommand("-forward")
-	end
 end
+
 hook.Add("TTTEndRound", "PoisonTimerEnd", StopPoison)
 
 local function StopPoison2(ply)
