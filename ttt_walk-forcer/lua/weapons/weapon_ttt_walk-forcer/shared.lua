@@ -15,7 +15,7 @@ if CLIENT then
       desc = "1 Dart. Force a Player to walk forward!"
    };
 
-   SWEP.Icon = "VGUI/ttt/icon_Walk-Forcer.png"
+   SWEP.Icon = "VGUI/ttt/icon_walk"
 end
 
 SWEP.Cat = "Dart Guns"
